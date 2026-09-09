@@ -1,0 +1,24 @@
+{
+  "name": "flowfield-opv",
+  "owner": {
+    "name": "Flowfield"
+  },
+  "description": "Official Claude distribution for Flowfield: OPV.",
+  "plugins": [
+    {
+      "name": "opv-flowfield",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Search and read Outperform Ventures knowledge through the authenticated Flowfield connector.",
+      "author": {
+        "name": "Flowfield"
+      },
+      "category": "productivity",
+      "tags": [
+        "outperform-ventures",
+        "knowledge",
+        "search"
+      ]
+    }
+  ]
+}
