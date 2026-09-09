@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "opv-flowfield": {
+      "type": "http",
+      "url": "https://opv-mcp-469120274566.us-south1.run.app/mcp"
+    }
+  }
+}
