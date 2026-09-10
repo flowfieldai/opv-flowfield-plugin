@@ -1,3 +1,7 @@
+# 0.1.2
+
+- Add Google Drive source guidance, per-user access boundaries, and distinct sync/indexing coverage.
+
 # Changelog
 
 ## 0.1.1

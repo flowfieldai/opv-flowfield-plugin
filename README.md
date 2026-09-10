@@ -1,7 +1,7 @@
 # Flowfield: OPV
 
 Official Claude plugin for Outperform Ventures knowledge. The sources are
-Slack and Gmail, including extracted attachments. Drive and Notion are
+Slack, Gmail and Google Drive, including extracted attachments. Notion is
 not yet enabled. This package contains no customer content or credentials.
 
 ## Install in Claude Desktop, Cowork, or Chat
@@ -33,7 +33,7 @@ conversation, and read the most relevant result with its Slack source link.”
 ## Claude Code
 
 ```sh
-curl --proto '=https' --tlsv1.2 -fsS https://raw.githubusercontent.com/flowfieldai/opv-flowfield-plugin/v0.1.1/install-claude-code.sh | sh
+curl --proto '=https' --tlsv1.2 -fsS https://raw.githubusercontent.com/flowfieldai/opv-flowfield-plugin/v0.1.2/install-claude-code.sh | sh
 ```
 
 Reload plugins or start a new session afterward. The installer uses normal OAuth
