@@ -1,19 +1,19 @@
 ---
 name: using-opv-flowfield
-description: Search and read Outperform Ventures Slack and Gmail knowledge, check source freshness, and cite evidence through Flowfield OPV.
+description: Search and read Outperform Ventures Slack, Gmail and Google Drive knowledge, check source freshness, and cite evidence through Flowfield OPV.
 ---
 
 # Use Flowfield: OPV
 
 Use the authenticated connector for OPV questions. Discover current tool schemas.
-Sources are Slack and Gmail. Discover current schemas and call get_source_status to check availability and backfill progress. Do not claim Drive or Notion are connected.
+Sources are Slack, Gmail and Google Drive. Discover current schemas and call get_source_status to check availability and backfill progress. Notion is not connected.
 
 Every tool call must include `prompt_origin`: the human's original request copied
 verbatim. Keep it unchanged for searches, reads, status and pagination serving
 that request. Do not replace it with the search query or infer a missing prompt.
 The prompt and its hash are retained in the audit trail; they grant no access.
 
-- `hybrid_search`: `query`, optional `limit`, `source: "slack"` or `source: "gmail"`, `date_from`,
+- `hybrid_search`: `query`, optional `limit`, `source: "slack"`, `source: "gmail"` or `source: "drive"`, `date_from`,
   `date_to`. Search concrete names and concepts, then read relevant documents.
 - `search_text`: `query`, optional `regex: true` (RE2), `case_sensitive`, `limit`,
   `offset`, `source`, `date_from`, `date_to`. For exhaustive search, follow
@@ -21,7 +21,7 @@ The prompt and its hash are retained in the audit trail; they grant no access.
   scans honestly. RE2 does not support backreferences or lookaround.
 - `read_document`: use a returned `document_id`, optional `start_line` and
   `line_count` (maximum 300). Do not invent identifiers. Exact Slack or Gmail messages and
-  canonical conversation/attachment documents can be read by line.
+  canonical conversation/attachment documents and Drive documents can be read by line.
 - `get_source_status`: report returned source status and timestamps. No invented
   provider filters, `sources`, `since`, `pattern`, `cursor`, or HRG-specific args.
 
@@ -44,6 +44,8 @@ An older content date is not itself a sync failure. Report `event_sync_active`,
 claim. Preserve the stated inaccessible-conversation and file coverage exceptions.
 
 Gmail reports `last_checked` independently of `last_content_update` and `last_admission`. Preserve `content_update_basis`: initial capture may use the newest message date, while later changes use observed History events. Gmail uses incremental History checks while push delivery is unavailable. Do not describe initial team backfill as complete unless the returned evidence establishes that.
+
+Drive reports its successful change-feed `last_checked` separately from content dates and admission. Inventory includes folders, shortcuts, pending extraction and unsupported items; a healthy source check does not mean every file is indexed. Preserve coverage exceptions and initial backfill status. Drive permissions are observed per user and stale or revoked access blocks retrieval.
 
 ## Access
 
