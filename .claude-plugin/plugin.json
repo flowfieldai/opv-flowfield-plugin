@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "opv-flowfield",
   "displayName": "Flowfield: OPV",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Search and read Outperform Ventures knowledge through the authenticated Flowfield connector.",
   "author": {
     "name": "Flowfield"
