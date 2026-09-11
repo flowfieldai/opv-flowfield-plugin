@@ -1,3 +1,7 @@
+# 0.1.3
+
+- Add the Josh-only Codex transcript source, freshness semantics, search/read guidance and access boundary.
+
 # 0.1.2
 
 - Add Google Drive source guidance, per-user access boundaries, and distinct sync/indexing coverage.

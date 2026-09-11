@@ -1,7 +1,7 @@
 # Flowfield: OPV
 
 Official Claude plugin for Outperform Ventures knowledge. The sources are
-Slack, Gmail and Google Drive, including extracted attachments. Notion is
+Slack, Gmail and Google Drive, including extracted attachments, plus Josh-authorized Codex task transcripts. Notion is
 not yet enabled. This package contains no customer content or credentials.
 
 ## Install in Claude Desktop, Cowork, or Chat
@@ -27,13 +27,12 @@ Four read-only tools: `hybrid_search`, `search_text`, `read_document`, and
 `prompt_origin`. The bundled skills explain the current OPV schemas, source and
 date filters, exhaustive pagination, citations, and Central Time freshness.
 
-Try: “Use Flowfield: OPV to check Slack freshness, search for an investment
-conversation, and read the most relevant result with its Slack source link.”
+Try: “Use Flowfield: OPV to search my Codex transcripts for our latest retrieval design decision and read the most relevant result.”
 
 ## Claude Code
 
 ```sh
-curl --proto '=https' --tlsv1.2 -fsS https://raw.githubusercontent.com/flowfieldai/opv-flowfield-plugin/v0.1.2/install-claude-code.sh | sh
+curl --proto '=https' --tlsv1.2 -fsS https://raw.githubusercontent.com/flowfieldai/opv-flowfield-plugin/v0.1.3/install-claude-code.sh | sh
 ```
 
 Reload plugins or start a new session afterward. The installer uses normal OAuth
