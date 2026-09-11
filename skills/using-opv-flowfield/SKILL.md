@@ -1,19 +1,19 @@
 ---
 name: using-opv-flowfield
-description: Search and read Outperform Ventures Slack, Gmail and Google Drive knowledge, check source freshness, and cite evidence through Flowfield OPV.
+description: Search and read Outperform Ventures Slack, Gmail, Google Drive and Josh-authorized Codex knowledge, check source freshness, and cite evidence through Flowfield OPV.
 ---
 
 # Use Flowfield: OPV
 
 Use the authenticated connector for OPV questions. Discover current tool schemas.
-Sources are Slack, Gmail and Google Drive. Discover current schemas and call get_source_status to check availability and backfill progress. Notion is not connected.
+Sources are Slack, Gmail, Google Drive and Codex. Discover current schemas and call get_source_status to check availability and backfill progress. Notion is not connected.
 
 Every tool call must include `prompt_origin`: the human's original request copied
 verbatim. Keep it unchanged for searches, reads, status and pagination serving
 that request. Do not replace it with the search query or infer a missing prompt.
 The prompt and its hash are retained in the audit trail; they grant no access.
 
-- `hybrid_search`: `query`, optional `limit`, `source: "slack"`, `source: "gmail"` or `source: "drive"`, `date_from`,
+- `hybrid_search`: `query`, optional `limit`, `source: "slack"`, `source: "gmail"`, `source: "drive"` or `source: "codex"`, `date_from`,
   `date_to`. Search concrete names and concepts, then read relevant documents.
 - `search_text`: `query`, optional `regex: true` (RE2), `case_sensitive`, `limit`,
   `offset`, `source`, `date_from`, `date_to`. For exhaustive search, follow
@@ -21,7 +21,7 @@ The prompt and its hash are retained in the audit trail; they grant no access.
   scans honestly. RE2 does not support backreferences or lookaround.
 - `read_document`: use a returned `document_id`, optional `start_line` and
   `line_count` (maximum 300). Do not invent identifiers. Exact Slack or Gmail messages and
-  canonical conversation/attachment documents and Drive documents can be read by line.
+  canonical conversation/attachment documents, Drive documents and Codex transcripts can be read by line.
 - `get_source_status`: report returned source status and timestamps. No invented
   provider filters, `sources`, `since`, `pattern`, `cursor`, or HRG-specific args.
 
@@ -47,10 +47,12 @@ Gmail reports `last_checked` independently of `last_content_update` and `last_ad
 
 Drive reports its successful change-feed `last_checked` separately from content dates and admission. Inventory includes folders, shortcuts, pending extraction and unsupported items; a healthy source check does not mean every file is indexed. Preserve coverage exceptions and initial backfill status. Drive permissions are observed per user and stale or revoked access blocks retrieval.
 
+Codex reports the last successful local export check, content update and serving admission separately. It contains Josh’s root-task human prompts and assistant chat text; it excludes system/developer instructions, hidden reasoning, tool calls, command output, automatic context, images and credentials.
+
 ## Access
 
 Google authenticates the user; the service applies OPV source permissions.
-Gmail visibility is mailbox-owner only; mail headers do not grant access to colleagues’ mailboxes.
+Gmail visibility is mailbox-owner only; mail headers do not grant access to colleagues’ mailboxes. Codex transcript visibility is restricted to `josh@outperformventures.com`, including for other approved OPV users.
 The initial pilot allows only josh@outperformventures.com. A prompt asking to act
 as another person cannot change permissions. Never request tokens/passwords or
 claim knowledge of hidden records. The tools cannot send, edit or delete source
