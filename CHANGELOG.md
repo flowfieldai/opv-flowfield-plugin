@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Add Josh-only meeting transcripts from the canonical Flowfield repository transcript folder, including source filtering, freshness semantics, and access guidance.
+
 # 0.1.3
 
 - Add the Josh-only Codex transcript source, freshness semantics, search/read guidance and access boundary.
