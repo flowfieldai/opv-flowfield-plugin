@@ -26,7 +26,7 @@ case "$*" in
   "plugin marketplace update flowfield-opv") : ;;
   "plugin list --json")
     if [ -f "$STATE_DIR/plugin" ]; then
-      printf '%s\n' '[{"id":"opv-flowfield@flowfield-opv","version":"0.1.3","scope":"user","enabled":true}]'
+      printf '%s\n' '[{"id":"opv-flowfield@flowfield-opv","version":"0.1.4","scope":"user","enabled":true}]'
     else
       printf '%s\n' '[]'
     fi
